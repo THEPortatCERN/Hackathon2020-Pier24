@@ -4,3 +4,4 @@ scipy
 shapely
 pyshp
 fiona
+sklearn
