@@ -1,0 +1,6 @@
+numpy
+pyproj
+scipy
+shapely
+pyshp
+fiona
