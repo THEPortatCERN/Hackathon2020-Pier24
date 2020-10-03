@@ -11,21 +11,49 @@
 
 ## Datasets
 
-- __[rio](https://spacenet.ai/rio-de-janeiro/)__ <br>
+### [rio](https://spacenet.ai/rio-de-janeiro/)
 
-    > __Rio de Janeiro__ satellite imaging dataset for [__SpaceNet 1: Building Detection v1__](https://spacenet.ai/spacenet-buildings-dataset-v1/) challenge.
+> __Rio de Janeiro (Brazil)__ satellite imaging dataset for [__SpaceNet 1: Building Detection v1__](https://spacenet.ai/spacenet-buildings-dataset-v1/) challenge.
 
+```
+train:   3,8 band satellite images (raster) & building-footprints (vector) for Rio-de-Janeiro (2784 sq KM) collected by WorldView-2
+  mosaic: 3 band mosaic of dataset & building-footprints
+test:    3,8 band satellite images (raster) for Rio-de-Janeiro (2784 sq KM) collected by WorldView-2
+labels:  Compressed 3,8 band 200m x 200m tiles with associated building foot print labels
+landuse: Categorized land regions (shp/geojson) [22946 features].
+```
+
+- landuse data has 18 regional classes.
+    ```powershell
+    $regex='"fclass": "(\w+)"'
+    $classes = Select-String -Path '.\landuse.geojson' -Pattern $regex -AllMatches | forEach {$_.matches.groups[0]} | forEach {$_.Value -replace $regex,'$1'} | Sort-Object | Get-Unique
+
+    allotments
+    cemetery
+    commercial
+    farm
+    forest
+    grass
+    heath
+    industrial
+    meadow
+    military
+    nature_reserve
+    orchard
+    park
+    quarry
+    recreation_ground
+    residential
+    retail
+    scrub
     ```
-    train:   3,8 band raster/vector images for Rio-de-Janeiro (2784 sq KM) collected by WorldView-2
-      mosaic: 3 band raster mosaic of dataset & building foot print labels;
-    test:    3,8 band raster/vector images for Rio-de-Janeiro (2784 sq KM) collected by WorldView-2
-    labels:  Compressed 3,8 band 200m x 200m tiles with associated building foot print labels
-    landuse:
-    ```
 
-- __[zambia]()__ <br>
+### __[lusaka]()__ <br>
 
-    > __Zambia__ satellite imaging dataset.
+> __Lusaka (Zambia)__ satellite imaging dataset.
+
+- [lusaka-dem](https://opendata.rcmrd.org/datasets/zambia-srtm-dem-30-metres) <br>
+    30m resolution DEM raster dataset for Zambia region.
 
 ## Resources
 
