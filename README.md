@@ -8,6 +8,10 @@
 - [Datasets](#datasets)
 - [Tasks](#tasks)
 - [References](#references)
+## Problem-workflow
+
+<img src="https://github.com/THEPortatCERN/Hackathon2020-Pier24/tree/master/resources/workflow.png" alt="" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="200" height="400" />
+
 
 ## Datasets
 
@@ -54,9 +58,12 @@ landuse: Categorized land regions (shp/geojson) [22946 features].
 
 - [lusaka-dem](https://opendata.rcmrd.org/datasets/zambia-srtm-dem-30-metres) <br>
     30m resolution DEM raster dataset for Zambia region.
+## Tasks
+- [here](https://github.com/THEPortatCERN/Hackathon2020-Pier24/projects/1) <br>
 
 ## Resources
 
 - [GitHub: Recipies](docs/github.md)
 
 # References
+- [UN Habitat](https://unhabitat.org/sites/default/files/documents/2019-07/zambia_urban_housing_sector_profile.pdf)
