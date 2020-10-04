@@ -10,7 +10,7 @@
 - [References](#references)
 ## Problem-workflow
 
-<img src="https://github.com/THEPortatCERN/Hackathon2020-Pier24/blob/master/resources/workflow.png" width="400" height="400" />
+<img src="https://github.com/THEPortatCERN/Hackathon2020-Pier24/blob/master/resources/workflow.png" width="750" height="400" />
 
 
 ## Datasets
