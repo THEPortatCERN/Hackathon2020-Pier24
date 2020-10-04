@@ -66,6 +66,6 @@ def build_classifier(footprints):
     return classifier, score
 
 
-def classify(footprints, classifier):
+def predict(footprints, classifier):
     features = get_feature_vector(footprints, footprints)
-    classifier.predict(features)
+    return classifier.predict(features)
