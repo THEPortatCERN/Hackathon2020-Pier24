@@ -66,7 +66,7 @@ def parse_point_shp(path: str, crs_wkt):
     return points
 
 
-def pair(footprints, label_points):
+def associate_footprint_polygons_and_labels(footprints, label_points):
     centroids_fp = np.array([[fp.centroid.x, fp.centroid.y] for fp in footprints if not fp.is_empty])
 
     kdTree_footprints = scipy.spatial.cKDTree(centroids_fp)
@@ -92,16 +92,16 @@ def get_coord_sys(path):
     return wkt_str
 
 
-def get_zambia_footprints(path_footprints, path_labels):
+def get_zambia_footprints(path_footprints: str, path_labels: str):
     """Given the paths to the shapefiles, returns a list of `ZambiaFootprint`, and the coordinate system definition"""
     footprint_polygons = parse_polygon_shp(path_footprints)
     footprints_crs = get_coord_sys(path_footprints)
     labels = parse_point_shp(path_labels, footprints_crs)
 
-    return pair(footprint_polygons, labels), footprints_crs
+    return associate_footprint_polygons_and_labels(footprint_polygons, labels), footprints_crs
 
 
-def write_to_shapefile(path, footprints, crs):
+def write_to_shapefile(path: str, footprints: ZambiaFootprint, crs: str):
     """Writes the provided ZambiaFootprints to a shapefile, with the given coordinatesystem"""
     schema = {"geometry": "Polygon", "properties": {"label": "str", "category": "str"}}
     with fiona.open(path, 'w', crs=crs, schema=schema, driver='ESRI Shapefile') as output:
